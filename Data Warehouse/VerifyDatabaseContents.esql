@@ -1,0 +1,54 @@
+/*
+Sample program for use with IBM WebSphere Message Broker
+© Copyright International Business Machines Corporation 2005, 2010
+Licensed Materials - Property of IBM
+*/
+
+CREATE COMPUTE MODULE VerifyDatabaseContents_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		--Create a valid MQ output Message
+		CALL CopyMessageHeaders();
+		
+		--Declare Integer variable to store the number of rows count obtained from the Database
+		DECLARE NumberOfRowsInserted INTEGER;
+		
+		--Delcare a Reference to the Input Message
+		DECLARE ref REFERENCE to InputRoot.XMLNSC.Archive_Query;
+		
+		--Declare a start and end Timestamp object
+		DECLARE StartTime TIMESTAMP;
+		DECLARE EndTime TIMESTAMP;	
+		
+		--Populate the Timestamp object from date and times obtained from Input Message
+		SET StartTime = CAST((ref.Start_Time.Day || ref.Start_Time.Time) AS TIMESTAMP FORMAT 'MM/dd/yyyykk:mm:ss');
+		SET EndTime = CAST((ref.End_Time.Day || ref.End_Time.Time) AS TIMESTAMP FORMAT 'MM/dd/yyyykk:mm:ss');	
+		
+		--Query Database to obtain a count of number of rows inserted between two specified time intervals
+		SET NumberOfRowsInserted = (SELECT COUNT (*) 
+			FROM Database.DataWarehouse AS X 
+			WHERE (CAST (X.PutTimeStamp AS TIMESTAMP)) 
+			BETWEEN StartTime AND EndTime);
+				
+		--Create Ouput XML Message detailing the number of rows in the Database inserted between the two specified time intervals		
+		SET OutputRoot.XMLNSC.StatusMessage = 'The number of rows inserted into the DataWarehouse table between ' || 
+		           ref.Start_Time.Day || ' ' || ref.Start_Time.Time || 
+		           ' and ' || ref.End_Time.Day || ' ' || ref.End_Time.Time ||  
+		           ' is ' || CAST(NumberOfRowsInserted AS CHAR);
+
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

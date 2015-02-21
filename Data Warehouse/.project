@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Metro_FL</name>
+	<name>Data Warehouse</name>
 	<comment></comment>
 	<projects>
-		<project>ESBDB</project>
-		<project>withFlow_LIB</project>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>com.ibm.etools.mft.bar.barbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.ibm.etools.mft.mapping.builder.mappingbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 		<buildCommand>
 			<name>com.ibm.etools.mft.applib.mbprojectbuilder</name>
 			<arguments>
@@ -70,6 +78,7 @@
 	</buildSpec>
 	<natures>
 		<nature>com.ibm.etools.msgbroker.tooling.messageBrokerProjectNature</nature>
+		<nature>com.ibm.etools.mft.bar.barnature</nature>
 		<nature>com.ibm.etools.mft.bar.ext.barnature</nature>
 	</natures>
 </projectDescription>

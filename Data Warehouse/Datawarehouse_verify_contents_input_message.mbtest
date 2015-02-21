@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1181720721890-154" eventTrace="/1" clientID="1181720721890-154">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="1181720721890-157">
+      <testModules xsi:type="model2:TestMsgFlow" iD="1181720721890-160"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1181720721890-158" format="" headerName="Header from .enqueue"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1181720721890-155" children="/2 /3 /4"/>
+  <mq:InteractiveMQEnqueueEvent iD="1256024389890-927" timestamp="1256024389890" children="/5" host="localhost" port="0" queueManager="QMBRK3" queue="DATAWAREHOUSE_VERIFY_CONTENTS_IN_Q">
+    <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    <request xsi:type="model2:TestMessage" iD="1181720721890-159" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="%3CArchive_Query%3E%0D%0A++%3CStart_Time%3E%0D%0A++++%3CDay%3Emm%2Fdd%2Fyyyy%3C%2FDay%3E%0D%0A++++%3CTime%3Ehh%3Amm%3Ass%3C%2FTime%3E%0D%0A++%3C%2FStart_Time%3E%0D%0A++%3CEnd_Time%3E%0D%0A++++%3CDay%3Emm%2Fdd%2Fyyyy%3C%2FDay%3E%0D%0A++++%3CTime%3Ehh%3Amm%3Ass%3C%2FTime%3E%0D%0A++%3C%2FEnd_Time%3E%0D%0A%3C%2FArchive_Query%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </mq:InteractiveMQEnqueueEvent>
+  <mq:InteractiveMQDequeueEvent iD="1256024392859-929" timestamp="1256024392859" host="localhost" port="0" queueManager="QMBRK3" queue="DATAWAREHOUSE_VERIFY_CONTENTS_OUT_Q">
+    <request xsi:type="model2:TestMessage" iD="1187786981890-272"/>
+  </mq:InteractiveMQDequeueEvent>
+  <mq:InteractiveMQDequeueEvent iD="1256024396343-931" timestamp="1256024396343" host="localhost" port="0" queueManager="QMBRK3" queue="DATAWAREHOUSE_FAILURE_Q">
+    <request xsi:type="model2:TestMessage" iD="1187786981890-272"/>
+  </mq:InteractiveMQDequeueEvent>
+  <mq:MQInformationEvent name="Message sent to MQ Queue &quot;DATAWAREHOUSE_VERIFY_CONTENTS_IN_Q&quot;" iD="1424501382106-210" host="localhost" port="0" queueManager="QMBRK3" queue="DATAWAREHOUSE_VERIFY_CONTENTS_IN_Q" readOnly="true" clientID="1181720721890-154" parentID="1256024389890-927" timestamp="1424501382106">
+    <message xsi:type="model2:TestMessage" iD="1181720721890-159" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="%3CArchive_Query%3E%0D%0A++%3CStart_Time%3E%0D%0A++++%3CDay%3Emm%2Fdd%2Fyyyy%3C%2FDay%3E%0D%0A++++%3CTime%3Ehh%3Amm%3Ass%3C%2FTime%3E%0D%0A++%3C%2FStart_Time%3E%0D%0A++%3CEnd_Time%3E%0D%0A++++%3CDay%3Emm%2Fdd%2Fyyyy%3C%2FDay%3E%0D%0A++++%3CTime%3Ehh%3Amm%3Ass%3C%2FTime%3E%0D%0A++%3C%2FEnd_Time%3E%0D%0A%3C%2FArchive_Query%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1424501382106-212" encoding="273" format="        " putDateTime="Fri Feb 20 22:49:42 PST 2015" replyToQueueManagerName="                                                " replyToQueueName="                                                " msgId="AMQ+QMBRK3++++++4%1C%C3%A8T+%00%7D%02" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQInformationEvent>
+</xmi:XMI>

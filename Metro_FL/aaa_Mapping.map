@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.4.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="default">
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbreturn.xsd"/>
+    <output path="db:table(/orcl.dbm,orcl,ESBDVLP,WMB_MSGS)" var="WMBMSGS"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="aaa_Mapping">
+        <output path="$WMBMSGS/db:insert(fn:false(),WMB_MSGKEY,HAS_BITSTREAM,HAS_EXCEPTION,HAS_USERDATA,EVENT_TYPE,EVENT_NAME,EVENT_SRCADDR,BROKER_NAME,BROKER_UUID,EXGRP_NAME,EXGRP_UUID,MSGFLOW_NAME,MSGFLOW_UUID,APPL_NAME,APPL_UUID,LIBRARY_NAME,LIBRARY_UUID,NODE_NAME,NODE_TYPE,DETAIL,TERMINAL_NAME,KEY_FLD_1_NM,KEY_FLD_2_NM,KEY_FLD_3_NM,KEY_FLD_4_NM,KEY_FLD_5_NM,EVENT_TIMESTAMP,LOCAL_TRANSACTION_ID,PARENT_TRANSACTION_ID,GLOBAL_TRANSACTION_ID)" var="dbinsert1"/>
+        <transaction>
+            <insert ref="dbinsert1">
+                <output path="$dbinsert1/."/>
+                <assign value="fds">
+                    <output path="HAS_BITSTREAM"/>
+                </assign>
+                <assign value="fds">
+                    <output path="HAS_USERDATA"/>
+                </assign>
+                <assign value="fdsf">
+                    <output path="BROKER_UUID"/>
+                </assign>
+            </insert>
+            <return>
+                <input path="DBInsertReturn"/>
+            </return>
+        </transaction>
+    </mappingDeclaration>
+</mappingRoot>
