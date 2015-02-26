@@ -1,16 +1,12 @@
 
 
-CREATE COMPUTE MODULE aaa_Compute
+CREATE COMPUTE MODULE WSRouter_Compute1
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
 		-- CALL CopyEntireMessage();
 		
-		INSERT INTO Database.ESBDVLP.MY_TAB (AA,BB,CC) VALUES (UUIDASCHAR,BrokerUserId,BrokerName );
-		--INSERT INTO Database.ESBDB.MY_TAB (AA,BB,CC) VALUES (UUIDASCHAR,BrokerUserId,BrokerName );
-		
-		--SET Environment.TEMP = SELECT AA AS a FROM Database.ESBDVLP.MY_TAB as bb;
-		 
+		--SET Environment.{ InputBody.ns:event.ns:applicationData.ns:simpleContent.ns:name} = InputBody.ns:event.ns:applicationData.ns:simpleContent.ns:value;
 		RETURN TRUE;
 	END;
 

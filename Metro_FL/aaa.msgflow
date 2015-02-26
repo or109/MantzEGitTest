@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmDatabase.msgnode="ComIbmDatabase.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:sub_AAA.msgflow="sub_AAA.msgflow" xmlns:sub_BBB.msgflow="sub_BBB.msgflow" xmlns:sub_CCC.msgflow="sub_CCC.msgflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="aaa.msgflow"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmDatabase.msgnode="ComIbmDatabase.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:mbmonitor="http://www.ibm.com/wbi/2008/eflow_mbmonitor" xmlns:sub_AAA.msgflow="sub_AAA.msgflow" xmlns:sub_BBB.msgflow="sub_BBB.msgflow" xmlns:sub_CCC.msgflow="sub_CCC.msgflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="aaa.msgflow"
     nsPrefix="aaa.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
@@ -10,6 +10,26 @@
     <composition>
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="38,120" queueName="_AA">
         <translation xmi:type="utility:ConstantString" string="_AA"/>
+        <monitorEvents eventSourceDescription="Transaction start" eventSourceName="_AA.transaction.Start" eventIdentity="_AA.TransactionStart">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="base64Binary"/>
+            <eventName literal="_AA.TransactionStart"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventSourceDescription="Transaction end" eventSourceName="_AA.transaction.End" eventIdentity="_AA.TransactionEnd">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="CDATA"/>
+            <eventName literal="_AA.TransactionEnd"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
       </nodes>
       <nodes xmi:type="sub_AAA.msgflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="93,237">
         <translation xmi:type="utility:ConstantString" string="sub_AAA"/>

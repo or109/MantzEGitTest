@@ -1,16 +1,18 @@
 
 
-CREATE COMPUTE MODULE aaa_Compute
+DECLARE ns NAMESPACE 'http://www.ibm.com/xmlns/prod/websphere/messagebroker/6.1.0/monitoring/event';
+
+
+CREATE COMPUTE MODULE WSRouter_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
 		-- CALL CopyEntireMessage();
-		
-		INSERT INTO Database.ESBDVLP.MY_TAB (AA,BB,CC) VALUES (UUIDASCHAR,BrokerUserId,BrokerName );
-		--INSERT INTO Database.ESBDB.MY_TAB (AA,BB,CC) VALUES (UUIDASCHAR,BrokerUserId,BrokerName );
-		
-		--SET Environment.TEMP = SELECT AA AS a FROM Database.ESBDVLP.MY_TAB as bb;
-		 
+		SET Environment.Monitor.Name = 'Mantz';
+		SET Environment.Monitor.localTransactionId = Environment.Monitoring.EventCorrelation.localTransactionId;
+				
+
+
 		RETURN TRUE;
 	END;
 

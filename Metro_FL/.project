@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>ESBDB</project>
+		<project>My.LIB</project>
 		<project>withFlow_LIB</project>
 	</projects>
 	<buildSpec>

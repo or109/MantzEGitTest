@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.4.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="default">
+    <input path="/WMBEvent.xsd"/>
+    <output path="/WMBEvent.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="WSRouter_Mapping">
+        <input namespace="http://www.ibm.com/xmlns/prod/websphere/messagebroker/6.1.0/monitoring/event" path="mb:msg(event,assembly,XMLNSC,Properties)"/>
+        <output namespace="http://www.ibm.com/xmlns/prod/websphere/messagebroker/6.1.0/monitoring/event" path="mb:msg(event,assembly,XMLNSC,Properties)"/>
+        <move>
+            <input path="Properties"/>
+            <output path="Properties"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/@eventSourceAddress"/>
+            <output path="event/eventPointData/eventData/@eventSourceAddress"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/@productVersion"/>
+            <output path="event/eventPointData/eventData/@productVersion"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventIdentity/@eventName"/>
+            <output path="event/eventPointData/eventData/eventIdentity/@eventName"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventIdentity/@priority"/>
+            <output path="event/eventPointData/eventData/eventIdentity/@priority"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventIdentity/@severity"/>
+            <output path="event/eventPointData/eventData/eventIdentity/@severity"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventIdentity/@successDisposition"/>
+            <output path="event/eventPointData/eventData/eventIdentity/@successDisposition"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventSequence/@counter"/>
+            <output path="event/eventPointData/eventData/eventSequence/@counter"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventSequence/@creationTime"/>
+            <output path="event/eventPointData/eventData/eventSequence/@creationTime"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventSequence/@dataType"/>
+            <output path="event/eventPointData/eventData/eventSequence/@dataType"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventSequence/@name"/>
+            <output path="event/eventPointData/eventData/eventSequence/@name"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventSequence/@value"/>
+            <output path="event/eventPointData/eventData/eventSequence/@value"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventCorrelation/@globalTransactionId"/>
+            <output path="event/eventPointData/eventData/eventCorrelation/@globalTransactionId"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventCorrelation/@localTransactionId"/>
+            <output path="event/eventPointData/eventData/eventCorrelation/@localTransactionId"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/eventData/eventCorrelation/@parentTransactionId"/>
+            <output path="event/eventPointData/eventData/eventCorrelation/@parentTransactionId"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/broker/@hostName"/>
+            <output path="event/eventPointData/messageFlowData/broker/@hostName"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/broker/@name"/>
+            <output path="event/eventPointData/messageFlowData/broker/@name"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/broker/@UUID"/>
+            <output path="event/eventPointData/messageFlowData/broker/@UUID"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/executionGroup/@name"/>
+            <output path="event/eventPointData/messageFlowData/executionGroup/@name"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/executionGroup/@UUID"/>
+            <output path="event/eventPointData/messageFlowData/executionGroup/@UUID"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/messageFlow/@name"/>
+            <output path="event/eventPointData/messageFlowData/messageFlow/@name"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/messageFlow/@threadId"/>
+            <output path="event/eventPointData/messageFlowData/messageFlow/@threadId"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/messageFlow/@uniqueFlowName"/>
+            <output path="event/eventPointData/messageFlowData/messageFlow/@uniqueFlowName"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/messageFlow/@UUID"/>
+            <output path="event/eventPointData/messageFlowData/messageFlow/@UUID"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/node/@detail"/>
+            <output path="event/eventPointData/messageFlowData/node/@detail"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/node/@nodeLabel"/>
+            <output path="event/eventPointData/messageFlowData/node/@nodeLabel"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/node/@nodeType"/>
+            <output path="event/eventPointData/messageFlowData/node/@nodeType"/>
+        </move>
+        <move automap="true">
+            <input path="event/eventPointData/messageFlowData/node/@terminal"/>
+            <output path="event/eventPointData/messageFlowData/node/@terminal"/>
+        </move>
+        <move automap="true">
+            <input path="event/applicationData/simpleContent/@dataType"/>
+            <output path="event/applicationData/simpleContent/@dataType"/>
+        </move>
+        <move automap="true">
+            <input path="event/applicationData/simpleContent/@name"/>
+            <output path="event/applicationData/simpleContent/@name"/>
+        </move>
+        <move automap="true">
+            <input path="event/applicationData/simpleContent/@targetNamespace"/>
+            <output path="event/applicationData/simpleContent/@targetNamespace"/>
+        </move>
+        <move automap="true">
+            <input path="event/applicationData/simpleContent/@value"/>
+            <output path="event/applicationData/simpleContent/@value"/>
+        </move>
+        <move automap="true">
+            <input path="event/applicationData/complexContent/@elementName"/>
+            <output path="event/applicationData/complexContent/@elementName"/>
+        </move>
+        <move automap="true">
+            <input path="event/applicationData/complexContent/@targetNamespace"/>
+            <output path="event/applicationData/complexContent/@targetNamespace"/>
+        </move>
+        <move automap="true">
+            <input path="event/bitstreamData/bitstream/@encoding"/>
+            <output path="event/bitstreamData/bitstream/@encoding"/>
+        </move>
+        <move automap="true">
+            <input path="event/bitstreamData/bitstream/text()"/>
+            <output path="event/bitstreamData/bitstream/text()"/>
+        </move>
+        <assign value="abccc">
+            <output path="event/eventPointData/eventData/@eventSchemaVersion"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>
